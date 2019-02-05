@@ -1,0 +1,117 @@
+<html>
+<head>
+	<title> quiz14 </title>
+	
+	
+	 <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta http-equiv="cache-control" content="no-cache" />
+	  <meta http-equiv="pragma" content="no-cache" />
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+<script type="text/javascript">
+function addslots()
+{
+		check1();
+		
+		var day = $("#day").val();
+		var stime = $("#stime").val();
+		var etime = $("#etime").val();
+		var slot = $("#slot").val();
+
+
+		adt =
+		{
+			"day" : day,
+			"stime" : stime,
+			"etime" : etime,
+			"slot" : slot
+
+		}
+
+		$.ajax
+		({
+			type:"POST",
+			url:"addslot.php",
+			data:adt,
+			dataType:"HTML"
+		}).done(function(data,Status)
+        {
+          $("#message").html(data);
+    
+        })
+}
+</script>
+	
+<script>
+
+function check1()
+	{
+		
+		var start=document.getElementById("stime").value;
+		var end=document.getElementById("etime").value;
+		
+		var g = parseInt(start);
+		var g1 = parseInt(end);
+		
+		if(g1 != g)
+		{
+			document.getElementById("yess").innerHTML="end time is less than start time";
+		}		
+		else
+		{
+			document.getElementById("yess").innerHTML="";
+		}
+	}
+
+</script>
+	
+</head>
+<body>
+<div style="margin: 18px">
+  <select id="day">
+  	<option value="Monday">Monday</option>
+  	<option value="Tuesday">Tuesday</option>
+  	<option value="Wednesday">Wednesday</option>
+  	<option value="Thursday">Thursday</option>
+  	<option value="Friday">Friday</option>
+  	<option value="Satuarday">Satuarday</option>
+  </select>
+
+  	<label>Starting Time</label>
+ 	<input type="time" id="stime"></input>
+	<label>Ending Time</label>
+ 	<input type="time" id="etime"></input>
+
+ 	<label>Slots:</label>
+ 	<select id="slot">
+ 	<option value="Slot 1">Slot 1</option>
+ 	<option value="Slot 2">Slot 2</option>
+ 	<option value="Slot 3">Slot 3</option>
+ 	<option value="Slot 4">Slot 4</option>
+ 	<option value="Slot 5">Slot 5</option>
+ 	<option value="Slot 6">Slot 6</option>
+ 	<option value="Slot 7">Slot 7</option>
+ 	<option value="Slot 8">Slot 8</option>
+ 	<option value="Slot 9">Slot 9</option>
+	<option value="Slot 10">Slot 10</option>
+	<option value="Slot 11">Slot 11</option>
+	<option value="Slot 12">Slot 12</option>
+ 	</select>
+
+ 	<button onclick="addslots()">ADD SLOTS</button>
+	<id id = "message"></id>
+	<id id = "yess"></id>
+	
+
+</div>
+</body>
+</html>

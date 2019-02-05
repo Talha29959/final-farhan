@@ -1,0 +1,429 @@
+<html>
+
+<head>
+<title>SPEENGHAR TRAVEL AGENCY</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<script>
+function checkVocherNum(){
+  		var ce=document.getElementById('cell').value;
+  		var re=/^\d{4}$/;//\d means digit  aye
+  		if(!(re.test(ce))){
+  			document.getElementById('vcn').innerHTML="Above 4 digit number";
+  			document.getElementById('vcn').innerHTML.color="blue";
+  		}
+  		else{
+  			document.getElementById('vcn').innerHTML="Correct";
+  		}
+  	}
+
+
+
+
+function checkAccountNum(){
+  		var ce=document.getElementById('vn').value;
+  		var re=/^\d{2}[\-]\d{5}[\-]\d{8}$/;//\d means digit  aye
+  		if(!(re.test(ce))){
+  			document.getElementById('an').innerHTML="incorrect account no.";
+  			//document.getElementById('an').innerHTML.color="blue";
+  		}
+  		else{
+  			document.getElementById('an').innerHTML="correct";
+  		}
+  	}
+
+
+
+function checkAccountNum1(){
+  		var ce=document.getElementById('vvn').value;
+  		var re=/^\d{2}[\-]\d{5}[\-]\d{8}$/;//\d means digit  aye
+  		if(!(re.test(ce))){
+  			document.getElementById('an1').innerHTML="incorrect account no.";
+  			document.getElementById('an1').innerHTML.color="blue";
+  		}
+  		else{
+  			document.getElementById('an1').innerHTML="correct";
+  		}
+  	}
+
+
+
+function checkdebutaccount(){
+		var c = document.getElementById('debut').value;
+		if(c>10000000)
+		{
+			document.getElementById('d').innerHTML = "you enter an higher ammount";
+			document.getElementById('d').innerHTML.color= "blue";
+		
+		}
+		else{
+			
+			document.getElementById('d').innerHTML = " ";	
+		}
+	}
+
+
+
+
+
+function checkVocherNumc(){
+  		var ce=document.getElementById('cellc').value;
+  		var re=/^\d{4}$/;//\d means digit  aye
+  		if(!(re.test(ce))){
+  			document.getElementById('vcnc').innerHTML="Above 4 digit number";
+  			document.getElementById('vcnc').innerHTML.color="blue";
+  		}
+  		else{
+  			document.getElementById('vcnc').innerHTML="Correct";
+  		}
+  	}
+
+
+
+
+
+
+
+function checkdebutaccount2(){
+		var c = document.getElementById('cerdit').value;
+		if(c>10000000)
+		{
+			document.getElementById('dc').innerHTML = "you enter an higher ammount";
+			document.getElementById('dc').innerHTML.color= "blue";
+		
+		}
+		else{
+			
+			document.getElementById('dc').innerHTML = " ";	
+		}
+	}
+
+
+function checkdebutaccount3(){
+		var c = document.getElementById('cerditc').value;
+		if(c>10000000)
+		{
+			document.getElementById('dcc').innerHTML = "you enter an higher ammount";
+			document.getElementById('dcc').innerHTML.color= "blue";
+		
+		}
+		else{
+			
+			document.getElementById('dcc').innerHTML = " ";	
+		}
+	}
+
+
+
+
+
+function checkcraditccount(){
+		var c = document.getElementById('abc').value;
+		if(c>10000000)
+		{
+			document.getElementById('ab').innerHTML = "you enter an higher ammount";
+			document.getElementById('ab').innerHTML.color= "blue";
+		
+		}
+		else{
+			
+			document.getElementById('ab').innerHTML = " ";	
+		}
+	}
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+ 
+<body>
+<div class="jumbotron text-center" style="background-color:plum;color:white">
+<h1>SPEENGHAR TRAVEL AGENCY </h1>
+</div>
+
+ <nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav nav-pills">
+			<li>
+				<a href="Home.html">
+					<span class="glyphicon glyphicon-home"></span> Home
+				</a>
+			</li>
+			<li>
+			<a>
+			<span class="glyphicon glyphicon-arrow-down" data-toggle="collapse" data-target="#debit">Debt Amount</span> 
+			</a>
+			</li>
+		
+	<li>
+			<a>
+			<span class="glyphicon glyphicon-arrow-down" data-toggle="collapse" data-target="#credit">Credit Amount</span> 
+			</a>
+			</li>
+		
+
+			<li class="nav navbar-nav navbar-right">
+			<a href="Signin.html">Login
+				<span class="glyphicon glyphicon-user"></span>
+				</a>
+			</li>
+			<li class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+			<input type="text" placeholder="Account #" class="form-control">
+			<input type="date" class="form-control"/> <b style="color:white">to</b> <input type="date" class="form-control"/>
+			</div>
+			<button type="submit" class="btn btn-default" data-toggle="collapse" data-target="#balance">Check Balance</button>
+			</li>
+		</ul>
+    </div>
+	</div>
+</nav>
+
+<div id="debit" class="collapse">
+			<div class="container">
+			<h3 style="color:green">Debit Amount</h3>
+				<form action="db.php" method="post">
+				<div class="form-group">
+				<label for ="userid">DATE</label>
+				<input type="date" class="form-control" id="dt" name="date" required>
+				</div>
+				<div class="form-group">
+				<label for ="userid">VOUCHER NUMBER</label>
+				<input type="number" class="form-control" name="vn" id="cell" onblur="checkVocherNum()" placeholder="maximum 4 digit: 1234"required>
+				<p id="vcn"></p>
+				</div>
+	<div class="row"><div class="col-sm-6">
+			<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">From BANK
+		<span class="caret"></span></button>
+  		<ul class="dropdown-menu">
+		    <li><a href="#">United Bank Limited</a></li>
+		    <li><a href="#">Allied Bank Limited</a></li>
+		    <li><a href="#">Habib Bank Limited</a></li>
+		    <li><a href="#">Muslim Commercial Bank Limited</a></li>
+		    <li><a href="#">Bank Alfalah Limited</a></li>
+		    <li><a href="#">Faisal Bank Limited</a></li>
+		    <li><a href="#">Albarak Bank Limited</a></li>
+		    <li><a href="#">National Bank Limited</a></li>
+		    <li><a href="#">Al-Habib Bank Limited</a></li>
+		    <li><a href="#">Khushali Bank Limited</a></li>
+		    <li><a href="#">SILK Bank Limited</a></li>
+		    <li><a href="#">SUMMIT Bank Limited</a></li>
+		</ul>
+		</div>
+
+		<div class="form-group">
+		<label for ="userid">Account #</label>
+		<input type="number" class="form-control" name="fa" id="vn" onblur="checkAccountNum()" required>
+		<p id="an"> </p>
+		</div>
+</div>
+<div class="col-sm-6">
+		<div class="dropdown">
+		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">To BANK
+		  <span class="caret"></span></button>
+  			<ul class="dropdown-menu">
+		    <li><a href="#">United Bank Limited</a></li>
+		    <li><a href="#">Allied Bank Limited</a></li>
+		    <li><a href="#">Habib Bank Limited</a></li>
+		    <li><a href="#">Muslim Commercial Bank Limited</a></li>
+		    <li><a href="#">Bank Alfalah Limited</a></li>
+		    <li><a href="#">Faisal Bank Limited</a></li>
+		    <li><a href="#">Albarak Bank Limited</a></li>
+		    <li><a href="#">National Bank Limited</a></li>
+		    <li><a href="#">Al-Habib Bank Limited</a></li>
+		    <li><a href="#">Khushali Bank Limited</a></li>
+		    <li><a href="#">SILK Bank Limited</a></li>
+		    <li><a href="#">SUMMIT Bank Limited</a></li>
+		  </ul>
+		</div>
+		<div class="form-group">
+		<label for ="userid">Account #</label>
+		<input type="number" name="ta" class="form-control" id="vvn" onblur="checkAccountNum1()" required>
+		<p id="an1"></p>
+		</div>
+</div>
+</div>
+		<div class="form-group">
+		<label for ="userid">DEBIT AMOUNT</label>
+		<input type="number"  name="da" class="form-control" id="debut" onblur="checkdebutaccount()" required>
+         <p id="d"></p> 
+		</div>
+		  <button class="btn btn-success" type="submit" name="tta">Transfer Amount</button>
+		</form>
+		</div>
+		</div>
+
+<div id="credit" class="collapse">
+			<div class="container">
+			<h3 style="color:green">Credit Amount</h3>
+				<form >
+				<div class="form-group">
+				<label for ="userid">DATE</label>
+				<input type="date" class="form-control" id="dt" required>
+				</div>
+				<div class="form-group">
+				<label for ="userid">VOUCHER NUMBER</label>
+				<input type="number" class="form-control" id="cellc" placeholder="maximum 4 digit: 1234"  onblur="checkVocherNumc()"  required>
+				<p id="vcnc"></p>
+				</div>
+	<div class="row"><div class="col-sm-6">
+			<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">From BANK
+		<span class="caret"></span></button>
+  		<ul class="dropdown-menu">
+		    <li><a href="#">United Bank Limited</a></li>
+		    <li><a href="#">Allied Bank Limited</a></li>
+		    <li><a href="#">Habib Bank Limited</a></li>
+		    <li><a href="#">Muslim Commercial Bank Limited</a></li>
+		    <li><a href="#">Bank Alfalah Limited</a></li>
+		    <li><a href="#">Faisal Bank Limited</a></li>
+		    <li><a href="#">Albarak Bank Limited</a></li>
+		    <li><a href="#">National Bank Limited</a></li>
+		    <li><a href="#">Al-Habib Bank Limited</a></li>
+		    <li><a href="#">Khushali Bank Limited</a></li>
+		    <li><a href="#">SILK Bank Limited</a></li>
+		    <li><a href="#">SUMMIT Bank Limited</a></li>
+		</ul>
+		</div>
+
+		<div class="form-group">
+		<label for ="userid">Account #</label>
+		<input type="number" class="form-control" id="cerdit"  onblur="checkdebutaccount2()" required>
+		<p id="dc"></p>
+		</div>
+</div>
+<div class="col-sm-6">
+		<div class="dropdown">
+		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">To BANK
+		  <span class="caret"></span></button>
+  			<ul class="dropdown-menu">
+		    <li><a href="#">United Bank Limited</a></li>
+		    <li><a href="#">Allied Bank Limited</a></li>
+		    <li><a href="#">Habib Bank Limited</a></li>
+		    <li><a href="#">Muslim Commercial Bank Limited</a></li>
+		    <li><a href="#">Bank Alfalah Limited</a></li>
+		    <li><a href="#">Faisal Bank Limited</a></li>
+		    <li><a href="#">Albarak Bank Limited</a></li>
+		    <li><a href="#">National Bank Limited</a></li>
+		    <li><a href="#">Al-Habib Bank Limited</a></li>
+		    <li><a href="#">Khushali Bank Limited</a></li>
+		    <li><a href="#">SILK Bank Limited</a></li>
+		    <li><a href="#">SUMMIT Bank Limited</a></li>
+		  </ul>
+		</div>
+		<div class="form-group">
+		<label for ="userid">Account #</label>
+		<input type="number" class="form-control" id="cerditc" onblur="checkdebutaccount3()" required>
+		<p id="dcc"></p>
+		</div>
+</div>
+</div>
+		<div class="form-group">
+		<label for ="userid">DEBIT AMOUNT</label>
+		<input type="number" class="form-control" id="abc" onblur="checkcraditccount()" required>
+		<p id="ab"></p>
+		</div>
+		  <button class="btn btn-success" type="submit">Transfer Amount</button>
+		</form>
+		</div>
+		</div>
+<div id="balance" class="collapse">
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Voucher Number</th>
+        <th>FROM BANK and Account #</th>
+        <th>TO BANK and Account #</th>
+        <th>Debit Amount</th>
+        <th>Credit Amount</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>07/25/2017</td>
+        <td>1234</td>
+        <td>UBL, LAHORE : 01-12345-12345678</td>
+        <td>HBL, LAHORE : 01-54321-87654321</td>
+        <td>15000.00</td>
+        <td>--</td>
+        <td>15000.00</td>
+      </tr>
+            <tr>
+        <td>07/25/2017</td>
+        <td>1235</td>
+        <td>UBL, LAHORE : 01-12345-12345678</td>
+        <td>HBL, LAHORE : 01-54321-87654321</td>
+        <td>15000.00</td>
+        <td>--</td>
+        <td>30000.00</td>
+      </tr>
+      <tr>
+        <td>07/26/2017</td>
+        <td>1236</td>
+        <td>UBL, LAHORE : 01-12345-12345678</td>
+        <td>HBL, LAHORE : 01-54321-87654321</td>
+        <td>15000.00</td>
+        <td>--</td>
+        <td>45000.00</td>
+      </tr>
+      <tr>
+        <td>07/27/2017</td>
+        <td>1237</td>
+        <td>MCB, LAHORE : 01-12345-12345678</td>
+        <td>HBL, LAHORE : 01-54321-87654321</td>
+        <td>15000.00</td>
+        <td>--</td>
+        <td>60000.00</td>
+      </tr>
+      <tr>
+        <td>07/28/2017</td>
+        <td>1238</td>
+        <td>HBL, LAHORE : 01-12345-12345678</td>
+	<td>ABL, LAHORE : 07-12345-8754321</td>
+        <td>--</td>
+        <td>18000.00</td>
+        <td>42000.00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>

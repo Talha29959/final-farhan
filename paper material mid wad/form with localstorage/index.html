@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Scholarship</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="home">
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/UCP-Logo.gif" width="50" height="50" alt=""><h3 class="d-inline align-middle"> Scholarships </h3>
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#showcase" class="nav-link">Students</a> <!-- go to id showcase-list of students-->
+                    </li>
+                    <li class="nav-item">
+                        <a href="#join" class="nav-link">Join</a> <!-- go to id join-form-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- JOIN -->
+    <!-- question 1:take write inputs -->
+    <!-- question 2 part 1:UCP logo should cover 12/3 portion of screen and should
+      only visible on large and extra-large screens. -->
+    <!-- question 2 part 2:Adjust the fields for all devices -->
+    <!-- question 3 part 1:Fetch the data of student and calculate scholarship on the base of CGPA.
+    The criteria of scholarship is given below.  -->
+    <!-- question 3 part 2: Save the validated data of student in localstoage in the form of object as shown below. -->
+    <!-- question 3 part 3:  Show the updated list using JavaScript in the table of students list as show below. -->
+    <!-- question 3 part 4: Check if a student already registered
+     then not update the list and show the alert message as shown below.  -->
+
+    <section id="join" class="bg-light py-4">
+        <div class="container-fluid">
+            <div class="row">
+                <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                <div class="col-sm-12 col-lg-9">     <!-- write col- changes-->
+                    <h3>Get Registered</h3>
+                    <p class="lead">UCP offers up-to 100% scholarship for undergraduate students</p>
+                    <form name="studentForm" id="studentForm" onsubmit="addStudent(); return false">
+                        <div class="form-row">
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-sm-6 colmd-6 col-xl-3">  <!-- write col- changes-->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" id="firstName"
+                                               name="firstName" placeholder="First Name" required
+                                        pattern="^([a-zA-Z]+[\s-]?)*[a-zA-Z]+$">  <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 1 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-sm-6 col md-6 col-xl-3"> <!-- write col- changes-->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" id="lastName"
+                                               name="lastName" placeholder="Last Name" required
+                                        pattern="^([a-zA-Z]+[\s-]?)*[a-zA-Z]+$"> <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 1 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-md-6 col-xl-3">   <!-- col- changes -->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" placeholder="Registration Number"
+                                               name="regNo" id="regNo" required
+                                               pattern="^(L|l)1([fF]|[sS])(\d{2})([a-zA-Z]{4})(\d{4})$"> <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 2 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-md-6 col-xl-3">   <!-- col- changes -->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" placeholder="Email"
+                                        id="email" name="email" required
+                                        pattern="^[\w\._-]+@(ucp\.edu\.pk|gmail\.com)$"> <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 3 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-sm-4 col-md-3.5">  <!-- col- changes -->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <div class="input-group input-group-lg">
+                                            <input type="text" class="form-control" placeholder="Mobile No"
+                                                   id="mobile" name="mobile" required
+                                                   pattern="^03\d{2}-\d{7}$"> <!-- given pattern=".*" -->
+                                            <!--Question-1 Part 4 : Write Regex in line above accordingly-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-sm-5 col-md-5">  <!-- col- changes -->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text" class="form-control" placeholder="Date of birth"
+                                        id="dob" name="dob" required
+                                    pattern="^(0?[1-9]|((1|2)\d)|3[01])\/(0?[1-9]|1[012])\/((19(9\d|8\d|7\d))|200[01])$"> <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 5 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Question-2 Part 2 : Write CSS code in line below accordingly-->
+                            <div class="col-sm-3 col-md-3.5">  <!-- col- changes -->
+                                <div class="form-group">
+                                    <div class="input-group input-group-lg">
+                                        <input type="text"
+                                                class="form-control" placeholder="cgpa"
+                                                id="cgpa" name="cgpa" required
+                                                pattern="^(([0-4]{1})|([0-3]{1}\.\d{1,2}))|[4]\.[0]{1,2}$"> <!-- given pattern=".*" -->
+                                        <!--Question-1 Part 6 : Write Regex in line above accordingly-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger d-none" id="alert">
+                            Student Already Registered
+                        </div>
+                        <input type="submit" value="Apply" class="btn btn-info btn-block btn-lg">
+                    </form>
+                </div>
+                <!--Question-2 Part 1 : Write HTML code and CSS classes in line below accordingly-->
+                <div class="col-lg-3 d-none d-lg-block align-self-center">  <!-- given align-self-center, just col-lg-3 kaam chal rha he -->
+                    <img src="img/UCP-Logo.gif" alt="FoIT" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="showcase" class="py-5">
+    <div class="primary-overlay text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center offset-lg-3">
+                    <h4 class="display-4 mt-5 pt-5">
+                        Students List
+                    </h4>
+                    <p class="lead"></p>
+                    <table class="table h-50" id="studentTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="main-footer" class="py-3 bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-6 ml-auto">
+                <p class="lead">Copyright &copy; 2018</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

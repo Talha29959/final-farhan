@@ -1,0 +1,267 @@
+<html>
+<script type= "text/javascript" src = "country.js"></script>
+<style language="css/text">
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+	font-family: montserrat, arial, verdana;
+}
+#msform {
+	width: 400px;
+	margin: 10px auto;
+	text-align: left;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+
+	box-sizing: border-box;
+	width: 90%;
+	margin-left: -280px;
+
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 5px 5px;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps
+	numbering to boxes.
+*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: Black;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: green;
+	color: white;
+}
+</style>
+<head>
+	<title>Final Paper</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/home/saeed/Desktop/LaptopData/UCP/Courses/WAD/FALL2016/bootStrapExample/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		$('#newJob').click(function(){
+			alert(" hi newJob");
+			$("#nJobs").show();
+			$("#dJobs").hide();
+			$("#vJobs").hide();
+			$("#citii").hide();
+			document.getElementById("newJob").style.background="green";
+			document.getElementById("deleteJob").style.background="gray";
+			document.getElementById("viewJob").style.background="gray";
+		});
+		$('#deleteJob').click(function(){
+			alert(" hi DeleteJob");
+			$("#dJobs").show();
+			$("#nJobs").hide();
+			$("#vJobs").hide();
+			$("#citii").hide();
+			document.getElementById("deleteJob").style.background="green";
+			document.getElementById("newJob").style.background="gray";
+			document.getElementById("viewJob").style.background="gray";
+		});
+		$('#viewJob').click(function(){
+			alert(" hi ViewJob");
+			$("#vJobs").show();
+			$("#citii").show();
+			$("#nJobs").hide();
+			$("#dJobs").hide();
+			document.getElementById("viewJob").style.background="green";
+			document.getElementById("newJob").style.background="gray";
+			document.getElementById("deleteJob").style.background="gray";
+		});
+	});
+	</script>
+</head>
+<body>
+<form id="msform">
+<fieldset id="UserDetail" style="width:1000px;height:20px">
+Welcome  <b>Saeed Iqbal Khattak</b> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <a href="" >Change Password </a>| <a href="" >saeed.iqbal Logout </a>|
+</fieldset>
+<br>
+<!-- <fieldset id="country"> -->
+<br><br>
+
+<fieldset style="width:1000px;height:80px">
+<div class="container">
+ <div class = "row">
+<div class = "col-sm-3"><button type="button" name ="newJob" id="newJob" class="next action-button">NEW JOB</button></div>
+<div class = "col-sm-3"><button style="background:gray" type="button" name="deleteJob" id="deleteJob" class="next action-button">DELETE JOB</button></div>
+<div class = "col-sm-3"><button style="background:gray" type="button" name="viewJob" id="viewJob" class="next action-button">VIEW JOB</button></div>
+</div>
+</div>
+</fieldset>
+<br><br><br><br><br>
+<fieldset id="citii" style="width:1000px;height:120px" hidden>
+<div class="form-group">
+	<script  type= "text/javascript" src = "/home/saeed/Desktop/LaptopData/UCP/Courses/WAD/FALL2015/Paper/countries.js"></script>
+ <div class = "row">
+	  <div class = "col-xs-5">
+	Select Country:  <select  class="form-control"id="country" name ="country"></select></div>
+	  <div class = "col-xs-4">
+  City: <input type="text" class='form-control' id='citi' placeholder="Lahore"></div>
+</div>
+</div>
+</fieldset>
+</form>
+<form id="msform" >
+<fieldset  id="nJobs" name="nJobs" style="width:1000px;height:550px"><legend>Insert New Job</legend>
+
+<div class='container'>
+	<form class='form-horizontal'>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='text' class='form-control' id='title' placeholder='Job Title : Web Developer'>
+		</div>
+	  </div><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='text' class='form-control' id='jKey' placeholder='Job Keywords'>
+		</div>
+	  </div><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <textarea class='form-control' id='res' placeholder='Responsibilities:'></textarea>
+		</div>
+	  </div><br><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='text' class='form-control' id='loc' placeholder='Job Location: Punjab'>
+		</div>
+	  </div><br><br>
+		<div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='text' class='form-control' id='org' placeholder='Organization: NETSOL'>
+		</div>
+	  </div><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='text' class='form-control' id='sal' placeholder='Job Salary'>
+		</div>
+	  </div><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-3'>
+		  <input type='date' class='form-control' id='dDate' placeholder='Due Date'>
+		</div>
+	  </div><br><br>
+	  <div class='form-group'>
+		<div class='col-sm-offset-1 col-sm-10'>
+		  <button type='button' class='btn btn-default' id = 'send' onclick = 'sendValues()'>Send Values</button>
+		</div>
+	  </div>
+	</form>
+</div>
+
+</fieldset>
+</form>
+<form id="msform">
+<fieldset  id="dJobs" name="dJobs" hidden style="width:1000px;height:150px">
+
+<div class='container'>
+	<form class='form-horizontal'>
+	  <div class='form-group'>
+		<div class='col-sm-4'>
+		  <input type='text' class='form-control' id='joTitle' placeholder='Job Title or Location or Organization Name'>
+		</div>
+		<div class="col-sm-2"><button type='button' class='btn btn-default' id = 'delete' onclick = 'deleteValues()'>Delete Job</button></div>
+	  </div>
+		</form>
+</div>
+</fieldset>
+</form>
+<form id="msform" >
+	<br><br><br><br><br><br>
+<fieldset  id="vJobs" name="vJobs" hidden style="width:1000px;height:650px" >
+
+<div class="row"><div class="col-sm-2"><h5>Job Title: Web Developer</h5></div>
+<div class="col-sm-7">Key Words : HTML/CSS, PHPm ASP.NET, Javascript, Ruby on Rails, Python Django and Search Engine Optimisation</div>
+<div class="col-sm-2"><h5>Job Location: Punjab, Pakistan</h5></div>
+</div><hr>
+<div class="row">
+<div class="col-sm-3">
+<div class="row">
+	<p>Responsibilities<p>
+</div>
+<br><br><br>
+<div class="row">
+	<h5>ORG: <b>NETSOL</b></h5>
+</div>
+</div>
+<div class="col-sm-7">
+<ul id="Res">
+		<li id="acc" >Write well designed, testable, efficient code by using best software development practices</li>
+		<li id="acc" >Create site layout/user interface by using standard HTML/CSS practices</li>
+		<li id="acc" >Integrate data from various back-end services and databases</li>
+		<li id="acc" >Top-notch programming skills and in-depth knowledge of modern HTML/CSS</li>
+		<li id="acc" >Familiarity with at least one of the following programming languages: PHP, ASP.NET, Javascript or Ruby on Rails</li>
+		<li id="acc" >Basic knowledge of Search Engine Optimisation process</li>
+</div>
+<div class="col-sm-2">
+<div class="row">
+	Salary: <b>75K<b>
+</div>
+</div>
+</div>
+
+</fieldset>
+</form>
+
+<script language="javascript">
+	populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+	populateCountries("country2");
+</script>
+</body>
+</html>
